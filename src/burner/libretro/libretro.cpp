@@ -61,7 +61,7 @@ INT32 (__cdecl *bprintf) (INT32 nStatus, TCHAR* szFormat, ...) = libretro_bprint
 
 int kNetGame = 0;
 INT32 nReplayStatus = 0;
-static unsigned nGameType = 0;
+unsigned nGameType = 0;
 
 static unsigned int BurnDrvGetIndexByName(const char* name);
 char* DecorateGameName(UINT32 nBurnDrv);
@@ -104,18 +104,6 @@ void retro_set_video_refresh(retro_video_refresh_t cb) { video_cb = cb; }
 void retro_set_audio_sample(retro_audio_sample_t) {}
 void retro_set_audio_sample_batch(retro_audio_sample_batch_t cb) { audio_batch_cb = cb; }
 
-#define RETRO_GAME_TYPE_CV		1
-#define RETRO_GAME_TYPE_GG		2
-#define RETRO_GAME_TYPE_MD		3
-#define RETRO_GAME_TYPE_MSX		4
-#define RETRO_GAME_TYPE_PCE		5
-#define RETRO_GAME_TYPE_SG1K	6
-#define RETRO_GAME_TYPE_SGX		7
-#define RETRO_GAME_TYPE_SMS		8
-#define RETRO_GAME_TYPE_TG		9
-#define RETRO_GAME_TYPE_SPEC	10
-#define RETRO_GAME_TYPE_NEOCD	11
-
 void retro_set_environment(retro_environment_t cb)
 {
 	environ_cb = cb;
@@ -156,14 +144,14 @@ static bool driver_inited;
 
 void retro_get_system_info(struct retro_system_info *info)
 {
-	info->library_name = "FB Alpha";
+	info->library_name = "FBA4S905&RPI";
 #ifndef GIT_VERSION
 #define GIT_VERSION ""
 #endif
-	info->library_version = FBA_VERSION GIT_VERSION;
+	info->library_version = FBA_VERSION " Ver.0.1 (严禁将本核心编译后使用在收费或者挂有募捐名义的项目中！！！)";
 	info->need_fullpath = true;
 	info->block_extract = true;
-	info->valid_extensions = "iso|zip|7z";
+	info->valid_extensions = "zip|7z";
 }
 
 // FBA stubs
